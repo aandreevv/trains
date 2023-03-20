@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  server:
+    container_name: server
+    build: ./server
+    env_file:
+      - /server/.env
+    environment:
+      POSTGRES_HOST: db
+    volumes:
+      - /app/node_modules
+    ports:
+      - '5000:5000'
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    container_name: db
+    image: postgres
+    env_file:
+      - ./server/.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    restart: always
+
+volumes:
+  postgres_data: {}

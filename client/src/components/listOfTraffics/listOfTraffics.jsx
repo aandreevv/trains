@@ -4,9 +4,9 @@ import {Box, Button, FormControl, InputLabel, MenuItem, Modal, Select, TextField
 import {_apiBase} from "../../api";
 import {useState} from "react";
 import {DemoContainer} from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
+import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
+import {DateTimePicker} from '@mui/x-date-pickers/DateTimePicker';
 import dayjs from "dayjs";
 
 const style = {
@@ -193,10 +193,10 @@ const DataTable = (props) => {
             >
                 <Box sx={style}>
                     <FormControl fullWidth>
-                        <InputLabel id="newStation">New station</InputLabel>
                         <TextField
-                        value={newStationName}
-                        onChange={(event) => setNewStationName(event.target.value)}></TextField>
+                            label="New station"
+                            value={newStationName}
+                            onChange={(event) => setNewStationName(event.target.value)}></TextField>
                     </FormControl>
                     <Button onClick={handleNewStation}>Submit</Button>
                 </Box>
